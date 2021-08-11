@@ -10,7 +10,7 @@ public class AutoCode {
     /**
      * 基础类包
      */
-    private String basePackage = "com.hejz";
+    private String basePackage = "com.guardlbt";
     /**
      * 表名
      */
