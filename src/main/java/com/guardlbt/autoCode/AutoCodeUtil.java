@@ -23,15 +23,10 @@ public class AutoCodeUtil {
      */
     public static String getNewFile(String modelPathAndName, Map map, String outFile) {
         int i = modelPathAndName.lastIndexOf("/");
-//        mac
-//        String urlPath = System.getProperty("user.dir");
-//        String urlPath = "/Users/hejianzhe/IdeaProjects/autoCode/src/main/resources/ftl";
-        //windows
         String urlPath = modelPathAndName.substring(0, i);
         String fileName = modelPathAndName.substring(i + 1);
         try {
             Configuration configuration = new Configuration(Configuration.getVersion());
-            //String urlPath="src/main/resources/templates/ftl/";
             configuration.setDirectoryForTemplateLoading(new File(urlPath));
             configuration.setDefaultEncoding("utf-8");
             Template template = configuration.getTemplate(fileName);
@@ -76,11 +71,12 @@ public class AutoCodeUtil {
      */
     public static String captureName(String name) {
         name = name.substring(0, 1).toUpperCase() + name.substring(1);
-        return  name;
+        return name;
 
     }
+
     /**
-     * 数据库类型枚举
+     * 数据库类型枚举——用于数据库转类时的类型转换时使用
      *
      * @author LUSHUIFA
      */
@@ -123,26 +119,17 @@ public class AutoCodeUtil {
             }
             return "";
         }
-
         public String getDbType() {
             return dbType;
         }
-
-        public void setDbType(String dbType) {
-            this.dbType = dbType;
-        }
-
         public String getJavaType() {
             return javaType;
-        }
-
-        public void setJavaType(String javaType) {
-            this.javaType = javaType;
         }
     }
 
     /**
      * 查看当前路径，如果没有新建一个
+     *
      * @param path
      */
     public static void getPath(String path) {
@@ -153,17 +140,20 @@ public class AutoCodeUtil {
         }
     }
 
-    public static StringBuffer getPathByCom(String comPath){
+    /**
+     * 区分项目路径——Mac和windows项目路径不同
+     */
+
+    public static StringBuffer getPathByCom(String comPath) {
         String[] split = comPath.split("\\.");
+        //win动态路径
 //        StringBuffer stringBuffer= new StringBuffer("src/main/java/");
-        Scanner in=new Scanner(System.in);
-        StringBuffer stringBuffer= new StringBuffer(System.getProperty("user.dir")+"/src/main/java/");
+        //mac动态路径
         ///Users/hejianzhe/IdeaProjects/autoCode/src/main/java/com/guardlbt
-        for (int i = 0; i <split.length ; i++) {
-                stringBuffer.append(split[i]+"/");
+        StringBuffer stringBuffer = new StringBuffer(System.getProperty("user.dir") + "/src/main/java/");
+        for (int i = 0; i < split.length; i++) {
+            stringBuffer.append(split[i] + "/");
         }
-
-
         return stringBuffer;
     }
 
