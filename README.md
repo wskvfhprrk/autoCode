@@ -6,7 +6,7 @@
     1、jdbc.url中的IP要配置；
     2、database-name是数据库名称，需要配置；
     
-**com.hejz.autoCode.AutoCode里面对象初始化配置**
+**com.guardlbt.autoCode.AutoCode里面对象初始化配置**
 
     根据实际情况进行初始化配置
     

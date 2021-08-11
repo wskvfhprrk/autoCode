@@ -1,7 +1,7 @@
-package com.hejz;
+package com.guardlbt;
 
-import com.hejz.autoCode.AutoCode;
-import com.hejz.autoCode.CreateCodeService;
+import com.guardlbt.autoCode.AutoCode;
+import com.guardlbt.autoCode.CreateCodeService;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,7 +21,7 @@ public class StartFreemarker {
 
 	@Test
 	public void createCode() {
-		AutoCode code = new AutoCode("person", "人员");
+		AutoCode code = new AutoCode("business_district", "商圈");
 		c.start(code);
 	}
 

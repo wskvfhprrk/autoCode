@@ -1,4 +1,4 @@
-package com.hejz.autoCode;
+package com.guardlbt.autoCode;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.Writer;
 import java.util.Map;
+import java.util.Scanner;
 
 /**
  * Created by Administrator on 2017/7/6.
@@ -22,6 +23,10 @@ public class AutoCodeUtil {
      */
     public static String getNewFile(String modelPathAndName, Map map, String outFile) {
         int i = modelPathAndName.lastIndexOf("/");
+//        mac
+//        String urlPath = System.getProperty("user.dir");
+//        String urlPath = "/Users/hejianzhe/IdeaProjects/autoCode/src/main/resources/ftl";
+        //windows
         String urlPath = modelPathAndName.substring(0, i);
         String fileName = modelPathAndName.substring(i + 1);
         try {
@@ -87,7 +92,7 @@ public class AutoCodeUtil {
         INTEGER("INTEGER", "java.lang.Integer"),
         BIGINT("BIGINT", "java.lang.Long"),
         FLOAT("FLOAT", "java.lang.Float"),
-        DOUBLE("DOUBLE", "java.lang.DOUBLE"),
+        DOUBLE("DOUBLE", "java.lang.Double"),
         DECIMAL("DECIMAL", "java.math.BigDecimal"),
         DATE("DATE", "java.sql.Date"),
         DATETIME("DATETIME", "java.sql.Timestamp"),
@@ -150,12 +155,15 @@ public class AutoCodeUtil {
 
     public static StringBuffer getPathByCom(String comPath){
         String[] split = comPath.split("\\.");
-        StringBuffer stringBuffer= new StringBuffer("src/main/java/");
+//        StringBuffer stringBuffer= new StringBuffer("src/main/java/");
+        Scanner in=new Scanner(System.in);
+        StringBuffer stringBuffer= new StringBuffer(System.getProperty("user.dir")+"/src/main/java/");
+        ///Users/hejianzhe/IdeaProjects/autoCode/src/main/java/com/guardlbt
         for (int i = 0; i <split.length ; i++) {
-            if(split[i]!=null && split[i].length()>0){
                 stringBuffer.append(split[i]+"/");
-            }
         }
+
+
         return stringBuffer;
     }
 

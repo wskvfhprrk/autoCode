@@ -1,4 +1,4 @@
-package com.hejz.util.entity;
+package com.guardlbt.util.entity;
 
 import java.util.List;
 /**

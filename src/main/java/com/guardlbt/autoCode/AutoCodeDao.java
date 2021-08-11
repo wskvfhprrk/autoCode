@@ -1,4 +1,4 @@
-package com.hejz.autoCode;
+package com.guardlbt.autoCode;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

@@ -1,4 +1,4 @@
-package com.hejz.util;
+package com.guardlbt.util;
 import java.util.UUID;
   
 public class UuidUtild {  
